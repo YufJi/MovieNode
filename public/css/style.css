@@ -1,0 +1,40 @@
+*{
+  padding:0;
+  margin: 0;
+}
+li{
+  list-style: none;
+}
+.index_img{
+  width: 155px;
+  height: 100px;
+}
+.col-xs-2{
+  overflow: hidden;
+}
+.title{
+  padding-left: 15px;
+}
+.index{
+  font-size: 24px;
+}
+.index:hover{
+  text-decoration: none;
+}
+.menu{
+  cursor: pointer;
+}
+.menu.active{
+  color: blue;
+}
+.caption h6{
+  height: 30px;
+  line-height: 14px;
+  font-size: .6em;
+}
+body{
+  
+}
+.com{
+  overflow: hidden;
+}

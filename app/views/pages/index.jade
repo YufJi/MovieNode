@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+ .container
+    .row
+      each item in movies
+        .col-xs-2
+            a.movieDetail(data='#{item._id}')
+              img(src="#{item.poster}",class='index_img')
+            .caption
+              h6 #{item.title}
+              p: a.movieDetail.btn.btn-primary(role='button',data='#{item._id}') 观看影片
+  script(src='/js/index.js')

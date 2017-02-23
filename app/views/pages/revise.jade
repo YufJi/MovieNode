@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+  .container
+    .row
+      .col-xs-6.col-xs-offset-3
+        #revise
+              form(method='post',action='/admin/revise')
+                .modal-header 修改密码
+                .modal-body
+                  input(type="hidden",name="user[_id]" value=users._id)
+                  .form-group
+                    label(for='reviseName') 用户名
+                    input#reviseName.form-control(name='user[name]',type='text',readonly,value=users.name)
+                  .form-group
+                    label(for='revisePassword') 密码
+                    input#revisePassword.form-control(name='user[password]',type='text',autocomplete='off')
+                  .form-group
+                    label(for='reviseRole') 权限值
+                    input#reviseRole.form-control(name='user[role]',type='text')
+                .modal-footer
+                  button.btn.btn-success(type='submit')  确定

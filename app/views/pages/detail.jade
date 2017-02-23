@@ -1,0 +1,58 @@
+extends ../layout
+
+block content
+	.container
+		.row
+			.col-xs-7
+				.vedio
+					<iframe width="100%" height=300 frameborder=0 src="#{movie.flash}" allowfullscreen></iframe>
+				.panel.panel-default
+					.panel-heading
+						h3 评论区
+					.panel-body
+						ul.com-list
+							each item in comments
+								li.com.farther
+									.pull-left
+										a.comment(href='#comment',data-cid='#{item._id}',data-tid='#{item.from._id}')
+											img.com-object(src='/img/touxiang.jpg',style='width:32px;height:32px;')
+									.com-body.pull-left
+										h4.com-heading 
+											span.name #{item.from.name}
+										p #{item.content}
+										if item.reply && item.reply.length>0
+											each reply in item.reply
+												.com
+													.pull-left
+														a.comment(data-cid='#{item._id}',data-tid='#{item.from._id}')
+															img.com-object(src='/img/touxiang.jpg',style='width:32px;height:32px;')
+													.com-body.pull-left
+														h4.com-heading 
+															span.name #{reply.from.name} 
+															//- span 回复 #{reply.to.name}
+														p #{reply.content}
+						hr
+						form#commentForm
+							input(type='hidden',name='comment[movie]',value='#{movie._id}')
+							input(type='hidden',name='comment[from]',value='#{user._id}')
+
+							.form-group
+								textarea#comment.form-control(name='comment[content]',row='3')
+							button.btn.btn-primary.commentBtn(type='button') 提交
+			.col-xs-5
+				dl.dl-horziontal
+					dt 电影名称
+					dd #{movie.title}
+					dt 导演
+					dd #{movie.doctor}
+					dt 国家
+					dd #{movie.country}
+					dt 语言
+					dd #{movie.language}
+					dt 上映年份
+					dd #{movie.year}
+					dt 简介
+					dd #{movie.summary}
+					//-dt 地址
+					//-dd #{movie.flash}
+	script(src='/js/detail.js')
