@@ -46,4 +46,5 @@ app.listen(port,function(err){
    console.log('server started on 3000')
 })
 
+
 require('./config/routes')(app)
