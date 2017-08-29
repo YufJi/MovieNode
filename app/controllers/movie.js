@@ -10,7 +10,7 @@ exports.detail = function(req,res){
     Comment
       .find({movie:id})
       .populate('from','name')
-      .populate('reply.from reply.to','name') 
+      .populate('reply.from reply.to','name')
       .exec(function(err,comments){
         //console.log(comments)
         res.render('detail',{
@@ -18,7 +18,7 @@ exports.detail = function(req,res){
               movie:movie,
               comments:comments
             })
-      }) 
+      })
   })
 }
 
@@ -41,7 +41,7 @@ exports.admin = function(req,res){
 
 //admin update movie
 exports.update = function(req,res){
-   var id = req.params.id 
+   var id = req.params.id
    if(id){
       Movie.findById(id,function(err,movies){
         res.render('admin',{
@@ -49,7 +49,7 @@ exports.update = function(req,res){
           movie:movies
         })
       })
-    }  
+    }
 }
 
 
@@ -68,6 +68,7 @@ exports.save = function (req,res) {
         if(err){
         console.log(err)
         }
+        
         res.redirect('/movie/'+ movies._id)
       })
     })
@@ -103,7 +104,7 @@ exports.list = function(req,res){
         title:'电影列表',
         movies:movies
       })
-  }) 
+  })
 }
 
 //list delete movie

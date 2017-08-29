@@ -5,7 +5,7 @@ var session = require('express-session')
 var mongoStore = require('connect-mongo')(session)
 var bodyParser = require('body-parser')
 var morgan = require('morgan')
-var port = 3000
+var port = 5000
 var app = express()
 var dburl = 'mongodb://localhost/lalala'
 
@@ -14,8 +14,7 @@ mongoose.connect(dburl)
 app.set('views','./app/views/pages')
 app.set('view engine','jade')
 
-
-app.use(bodyParser.json({ limit:'1mb' }))  
+app.use(bodyParser.json({ limit:'1mb' }))
 app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(session({
@@ -24,9 +23,9 @@ app.use(session({
     url:dburl,
     collection:'sessions'
   }),
-  cookie: {
-    maxAge: 6000000
-  },
+  cookie:{
+          maxAge: 6000000
+        },
   resave:true,
   saveUninitialized:false
 }))
@@ -44,7 +43,7 @@ app.listen(port,function(err){
    if(err){
     console.log(err)
    }
-   console.log('server started on 3000')
+   console.log(`server started on ${port}`)
 })
 
 
