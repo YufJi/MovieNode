@@ -11,7 +11,6 @@ var MovieSchema = new Schema({
   summary:String,
   poster:String,
   year:Number,
-  category:{type:ObjectId,ref:'Category'},
   meta:{
     createAt:{
       type:Date,
