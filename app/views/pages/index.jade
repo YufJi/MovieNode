@@ -5,7 +5,7 @@ block content
     .row
       each item in movies
         .col-xs-2
-            a.movieDetail(data='#{item._id}')
+            a
               img(src="#{item.poster}",class='index_img')
             .caption
               h6 #{item.title}
