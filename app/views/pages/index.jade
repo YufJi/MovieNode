@@ -2,12 +2,12 @@ extends ../layout
 
 block content
  .container
-    .row
-      each item in movies
-        .col-xs-2
-            a.movieDetail(data='#{item._id}')
-              img(src="#{item.poster}",class='index_img')
-            .caption
-              h6 #{item.title}
-              p: a.movieDetail.btn.btn-primary(role='button',data='#{item._id}') 观看影片
+    each item in movies
+      .col-xs-4.col-md-4(style="padding:2px;margin:0;")
+        .border(style="margin-top:10px;border:1px #ddd solid;overflow:hidden;padding:1px; border-radius:4px;")
+          a(role='button',data='#{item._id}',style="text-align:center;")
+            h6 #{item.title}
+            img(src="#{item.poster}",class='index_img')
+          .caption.text-center 
+            p: a.movieDetail.col-xs-12.btn.btn-success(role='button',data='#{item._id}') 观看影片
   script(src='/js/index.js')

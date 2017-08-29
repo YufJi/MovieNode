@@ -1,32 +1,34 @@
 .container 
   .row 
-    .page-header
+    .header(style="margin-top:40px;")
       .navbar
-        .container
-          .row
-            .col-xs-3
-              a.index(href='/') NBA集锦
-            .col-xs-5
-              .dropdown
-                button.btn.btn-default.dropdown-toggle(type='button' id='dropdownMenu' data-toggle='dropdown') 更多
-                  span.caret
-                ul.dropdown-menu(role="menu" aria-labelledby="dropdownMenu1")
-                  li(role='presentation')
-                    a(role="menuitem" tabindex="-1"  class='menu' data='userlist') 用户列表
-                  li(role='presentation')
-                    a(role="menuitem" tabindex="-1"  class='menu' data='list') 电影列表
-                  li(role='presentation')
-                    a(role="menuitem" tabindex="-1"  class='menu' data='movie') 添加电影
-            .col-xs-4 
-              if user
-                p.navbar-text.navbar-right
-                  span 欢迎您,#{user.name}
-                  span &nbsp;|&nbsp;
-                  a.navbar-link(href='/logout') 登出
-              else
-                p.navbar-text.navbar-right
-                  a.navbar-link(href='/signup') 注册
-                  span &nbsp;|&nbsp;
-                  a.navbar-link(href='/signin') 登录
+        .row
+          .col-xs-4
+            a.index(href='/') 电影小站
+          .col-xs-3
+            .dropdown
+              button.btn.btn-default.dropdown-toggle(type='button' id='dropdownMenu' data-toggle='dropdown') 更多
+                span.caret
+              ul.dropdown-menu(role="menu" aria-labelledby="dropdownMenu1")
+                li(role='presentation')
+                  a(role="menuitem" tabindex="-1"  class='menu' data='userlist') 用户列表
+                li(role='presentation')
+                  a(role="menuitem" tabindex="-1"  class='menu' data='list') 电影列表
+                li(role='presentation')
+                  a(role="menuitem" tabindex="-1"  class='menu' data='movie') 添加电影
+          .col-xs-5.text-right
+            p.navbar-text.navbar-right
+              a(href="/music") music
+            if user
+              p.navbar-text.navbar-right
+                span 欢迎您,#{user.name}
+                span &nbsp;|&nbsp;
+                a.navbar-link(href='/logout') 登出
+            else
+              p.navbar-text.navbar-right
+                a.navbar-link(href='/signup') 注册
+                span &nbsp;|&nbsp;
+                a.navbar-link(href='/signin') 登录
+      hr
       h4.title #{title}
 script(src='/js/menu.js')

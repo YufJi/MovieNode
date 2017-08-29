@@ -1,10 +1,13 @@
 var _ = require('underscore')
+const jsonwebtoken = require('jsonwebtoken')
+const jwt = require('express-jwt')
+const Cookie = require('js-cookie')
 var User = require('../models/user')
 
 //user delete
 exports.del = function(req,res){
-   var id  = req.query.id
-   if(id){
+  var id  = req.query.id
+  if(id){
     User.remove({_id:id},function(err,users){
       if(err){
         console.log(err)
@@ -12,7 +15,7 @@ exports.del = function(req,res){
         res.json({success:1})
       }
     })
-   }
+  }
 }
 
 //user revise
@@ -145,7 +148,7 @@ exports.SigninRequired = function(req,res,next){
 
 exports.AdminRequired = function(req,res,next){
    var user = req.session.user
-   if(user.role <= 30){
+   if(user.role < 30){
       return res.json({error:2})
     }
     next()
@@ -153,7 +156,7 @@ exports.AdminRequired = function(req,res,next){
 
 exports.AdminMostRequired = function(req,res,next){
    var user = req.session.user
-   if(user.role <= 50){
+   if(user.role < 50){
       return res.json({error:3})
     }
     next()

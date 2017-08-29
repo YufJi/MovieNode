@@ -14,6 +14,7 @@ mongoose.connect(dburl)
 app.set('views','./app/views/pages')
 app.set('view engine','jade')
 
+
 app.use(bodyParser.json({ limit:'1mb' }))  
 app.use(bodyParser.urlencoded({ extended: true }))
 
@@ -23,9 +24,9 @@ app.use(session({
     url:dburl,
     collection:'sessions'
   }),
-  cookie:{
-          maxAge: 6000000
-        },
+  cookie: {
+    maxAge: 6000000
+  },
   resave:true,
   saveUninitialized:false
 }))

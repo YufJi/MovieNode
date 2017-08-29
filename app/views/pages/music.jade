@@ -1,0 +1,24 @@
+doctype
+html
+ head
+  meta(charset="utf-8")
+  meta(name="apple-mobile-web-app-capable",content="yes")
+  meta(name="viewport",content="width=device-width,maximum-scale=1.0,user-scalable=0")  
+  title #{title}
+  link(href="/css/musicStyle.css", rel="stylesheet")
+  script(src="/libs/jquery/jquery.js")
+ body
+  header
+    h1 #{title}
+      ul.type(id="type")
+        li(data-type="dot") Dot
+        li.selected(data-type="colume") Colume
+      p(style="padding-top:10px")
+        span Volume
+        input(id="volume" type="range" value="20" min="0" max="100")
+  .left
+    ul(id="list")
+      each item in music
+        li(title='#{item}') #{item}
+  .right(id="box")
+  script(src="/js/script.js")

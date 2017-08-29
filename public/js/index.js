@@ -10,7 +10,6 @@ $(document).ready(function(){
                alert('请登录')
           }else{
             window.location.href='/movie/'+site
-            //window.open('/movie/'+site)
           }   
         },
         error:function(){

@@ -1,12 +1,9 @@
-*{
-  padding:0;
-  margin: 0;
-}
+
 li{
   list-style: none;
 }
 .index_img{
-  width: 155px;
+  width: 100%;
   height: 100px;
 }
 .col-xs-2{
