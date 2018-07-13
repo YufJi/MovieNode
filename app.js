@@ -24,8 +24,8 @@ app.use(session({
     collection:'sessions'
   }),
   cookie:{
-          maxAge: 6000000
-        },
+    maxAge: 6000000
+  },
   resave:true,
   saveUninitialized:false
 }))

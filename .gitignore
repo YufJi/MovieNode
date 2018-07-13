@@ -13,3 +13,5 @@ npm-debug.log*
 # webstorm files
 /.idea
 /.vscode
+
+public/media

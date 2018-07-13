@@ -1,7 +1,4 @@
 var _ = require('underscore')
-const jsonwebtoken = require('jsonwebtoken')
-const jwt = require('express-jwt')
-const Cookie = require('js-cookie')
 var User = require('../models/user')
 
 //user delete
@@ -20,7 +17,7 @@ exports.del = function(req,res){
 
 //user revise
 exports.revise = function(req,res){
-    var id = req.params.id 
+    var id = req.params.id
     User.findById(id,function(err,users){
         if(err){
           console.log(err)
@@ -47,11 +44,11 @@ exports.save = function(req,res){
       _user.save(function(err,users){
         if(err){
         console.log(err)
-        }  
+        }
         if(req.session.user._id == id ){
           delete req.session.user
-        }   
-        return res.redirect('/')    
+        }
+        return res.redirect('/')
       })
     })
   }
@@ -67,7 +64,7 @@ exports.showsignup = function(req,res){
 //showsignin
 exports.showsignin = function(req,res){
    res.render('showsignin')
-} 
+}
 
 //signup
 exports.signup = function (req,res) {
@@ -87,7 +84,7 @@ exports.signup = function (req,res) {
               res.redirect('/')
            })
         }
-    })   
+    })
 }
 
 //signin
@@ -95,7 +92,7 @@ exports.signin = function(req,res){
     var _user = req.body.user
     var name = _user.name
     var password = _user.password
-    User.findOne({name:name},function(err,user){
+    User.findOne({ name: name },function(err,user){
        if(err){
         console.log(err)
        }
@@ -135,7 +132,7 @@ exports.list = function(req,res){
         title:'用户列表',
         users:users
       })
-  })  
+  })
 }
 
 exports.SigninRequired = function(req,res,next){
@@ -143,7 +140,7 @@ exports.SigninRequired = function(req,res,next){
   if(!user){
     return res.json({error:1})
   }
-  next()   
+  next()
 }
 
 exports.AdminRequired = function(req,res,next){

@@ -16,7 +16,7 @@ module.exports = function(app){
   app.get('/',Index.index)
 
   //detail page
-  app.get('/movie/:id', User.SigninRequired, Movie.detail)
+  app.get('/movie/:id', Movie.detail)
   //admin page
   app.get('/admin/movie', User.SigninRequired, User.AdminRequired, Movie.admin)
   //admin update movie
@@ -31,7 +31,7 @@ module.exports = function(app){
   //user revise
   app.get('/user/update/:id', User.AdminMostRequired, User.revise)
   //post user revise
-  app.post('/admin/revise', User.save) 
+  app.post('/admin/revise', User.save)
   //signup
   app.get('/signup', User.showsignup)
   app.post('/user/signup', User.signup)
@@ -47,6 +47,4 @@ module.exports = function(app){
 
   //comment
   app.post('/user/comment', Comment.save)
-
-  app.get('/music', Index.music)
 }

@@ -1,9 +1,10 @@
 $(document).ready(function(){
+
   $('.com-list').on('click','.comment',function(e){
      var target = $(this)
      var toId = target.attr('data-tid')
      var comId = target.attr('data-cid')
-     
+
       if($('#toId').length>0){
         $('#toId').val(toId)
       }else{
@@ -14,7 +15,7 @@ $(document).ready(function(){
             value:toId
         }).appendTo('#commentForm')
       }
-     
+
       if($('#comId').length>0){
         $('#comId').val(comId)
       }else{
@@ -24,7 +25,7 @@ $(document).ready(function(){
             name:'comment[cid]',
             value:comId
         }).appendTo('#commentForm')
-      } 
+      }
   })
 
   $('.commentBtn').click(function(e){
@@ -48,7 +49,7 @@ $(document).ready(function(){
             )
         }else if(result.success == 2){
           index = $('.comment[data-cid='+com+']').parent().parent().index()
-          $('.farther').eq(index).find('.com-body:first').append( 
+          $('.farther').eq(index).find('.com-body:first').append(
                                       '<li class="com">'+
                                         '<div class="pull-left"><a data-cid="'+com+'" data-tid="'+to+'" class="comment"><img src="/img/touxiang.jpg" style="width:32px;height:32px;" class="com-object"></a></div>'+
                                         '<div class="com-body pull-left">'+
@@ -64,9 +65,3 @@ $(document).ready(function(){
     })
   })
 })
-
-
-
-
-
-                
