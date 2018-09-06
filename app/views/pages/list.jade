@@ -6,6 +6,7 @@ block content
       table.table.table-hover.table-bordered
         thead
           tr
+            th 序号
             th 名称
             th 导演
             th 国家
@@ -17,6 +18,7 @@ block content
         tbody
           each item in movies
             tr(class="item-id-#{item._id}")
+              td #{item.index + 1}
               td #{item.title}
               td #{item.doctor}
               td #{item.country}

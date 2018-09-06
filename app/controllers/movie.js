@@ -102,7 +102,10 @@ exports.list = function(req,res){
       }
       res.render('list',{
         title:'电影列表',
-        movies:movies
+        movies: movies.map(function(item, index) {
+          item.index = index;
+          return item;
+        })
       })
   })
 }
